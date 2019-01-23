@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 use std::io::{ Error, ErrorKind };
+use std::time::{ Instant };
 
 extern crate serde_json;
 use serde_json::Value;
@@ -17,7 +18,8 @@ pub struct Tags {
 
 pub struct Coyote {
     mapping: Value,
-    hson: Option<Hson>
+    hson: Option<Hson>,
+    process_start: Instant
 }
 
 impl Coyote {
@@ -27,7 +29,8 @@ impl Coyote {
 
         let mut coyote = Coyote {
             mapping: serde_json::from_str(&json)?,
-            hson: None
+            hson: None,
+            process_start: Instant::now()
         };
 
         Ok(coyote)
@@ -117,6 +120,8 @@ impl Coyote {
     pub fn gen (&mut self, s: &str) -> Result<String, Error> {
         self.parse(s)?;
 
+        self.print_process_time("PARSE");
+
         match self.hson {
             Some(ref mut hson) => {
                 let root_id = hson.get_root();
@@ -154,74 +159,102 @@ impl Coyote {
 
         match self.hson {
             Some(ref mut hson) => {
-                let results = hson.query_on(&node.id, "attrs", false)?;
+                let mut results = Vec::new();
+                let childs_length = node.childs.len();
+
+                if childs_length > 0 {
+                    let mut idx = 0;
+
+                    loop {
+                        match hson.nodes.get(&node.childs[idx]) {
+                            Some(n) => {
+                                let k = hson.get_node_key(n);
+
+                                if k == "attrs" {
+                                    results.push(node.childs[idx].clone());
+                                }
+                            },
+                            None => {}
+                        }
+
+                        idx += 1;
+                        if idx >= childs_length {
+                            break;
+                        }
+                    }
+                }
 
                 if results.len() > 0 {
                     let mut i = 0;
                     let attrs = hson.get_all_childs(&results[0])?;
                     let l = attrs.len();
 
-                    loop {
-                        match hson.get_vertex(&attrs[i]) {
-                            Some(vertex) => {
-                                let key = match vertex.key_as_string() {
-                                    Some(s) => s,
-                                    None => {
-                                        let e = Error::new(ErrorKind::InvalidData, format!("Cannot retrieve node key"));
-                                        return Err(e);
-                                    }
-                                };
-                                let value = match vertex.value_as_string() {
-                                    Some(s) => s,
-                                    None => {
-                                        let e = Error::new(ErrorKind::InvalidData, format!("Cannot retrieve node value"));
-                                        return Err(e);
-                                    }
-                                };
-
-                                attributes.push_str(" ");
-                                attributes.push_str(&key);
-
-                                if !value.is_empty() {
-                                    attributes.push_str("=\"");
-
-                                    match vertex.kind {
-                                        Kind::Array => {
-                                            let values = match vertex.value_as_array() {
-                                                Some(v) => v,
-                                                None => {
-                                                    let e = Error::new(ErrorKind::InvalidData, format!("Cannot cast node value to vector type"));
-                                                    return Err(e);
-                                                }
-                                            };
-                                            let l = values.len();
-                                            let mut i = 0;
-
-                                            loop {
-                                                attributes.push_str(&values[i]);
-
-                                                i += 1;
-                                                if i >= l {
-                                                    break;
-                                                }
-
-                                                attributes.push_str(" ");
-                                            }
-                                        },
-                                        _ => {
-                                            attributes.push_str(&value);
+                    if l > 0 {
+                        loop {
+                            match hson.get_vertex(&attrs[i]) {
+                                Some(vertex) => {
+                                    let key = match vertex.key_as_string() {
+                                        Some(s) => s,
+                                        None => {
+                                            let e = Error::new(ErrorKind::InvalidData, format!("Cannot retrieve node key"));
+                                            return Err(e);
                                         }
+                                    };
+                                    let value = match vertex.value_as_string() {
+                                        Some(s) => s,
+                                        None => {
+                                            let e = Error::new(ErrorKind::InvalidData, format!("Cannot retrieve node value"));
+                                            return Err(e);
+                                        }
+                                    };
+
+                                    attributes.push_str(" ");
+                                    attributes.push_str(&key);
+
+                                    if !value.is_empty() {
+                                        attributes.push_str("=\"");
+
+                                        match vertex.kind {
+                                            Kind::Array => {
+                                                let values = match vertex.value_as_array() {
+                                                    Some(v) => v,
+                                                    None => {
+                                                        let e = Error::new(ErrorKind::InvalidData, format!("Cannot cast node value to vector type"));
+                                                        return Err(e);
+                                                    }
+                                                };
+                                                let vl = values.len();
+
+                                                if vl > 0 {
+                                                    let mut vi = 0;
+
+                                                    loop {
+                                                        attributes.push_str(&values[vi]);
+
+                                                        vi += 1;
+                                                        if vi >= vl {
+                                                            break;
+                                                        }
+
+                                                        attributes.push_str(" ");
+                                                    }
+                                                }
+                                            },
+                                            _ => {
+                                                attributes.push_str(&value);
+                                            }
+                                        }
+
+                                        attributes.push_str("\"");
                                     }
+                                },
+                                None => {}
+                            }
 
-                                    attributes.push_str("\"");
-                                }
-                            },
-                            None => {}
-                        }
-
-                        i += 1;
-                        if i >= l {
-                            break;
+                            i += 1;
+                            if i >= l {
+                                break;
+                            }
                         }
                     }
                 }
@@ -237,7 +270,31 @@ impl Coyote {
 
         match self.hson {
             Some(ref mut hson) => {
-                let results = hson.query_on(&node.id, "text", false)?;
+                let mut results = Vec::new();
+                let childs_length = node.childs.len();
+
+                if childs_length > 0 {
+                    let mut idx = 0;
+
+                    loop {
+                        match hson.nodes.get(&node.childs[idx]) {
+                            Some(n) => {
+                                let k = hson.get_node_key(n);
+
+                                if k == "text" {
+                                    results.push(node.childs[idx].clone());
+                                }
+                            },
+                            None => {}
+                        }
+
+                        idx += 1;
+                        if idx >= childs_length {
+                            break;
+                        }
+                    }
+                }
+
                 let l = results.len();
 
                 if l > 0 {
@@ -297,6 +354,11 @@ impl Coyote {
         } else {
             Ok(String::from(""))
         }
+    }
+
+    pub fn print_process_time (&self, tag: &str) {
+        let duration = self.process_start.elapsed();
+        println!("{} : {:?}", tag, duration);
     }
 }
 
