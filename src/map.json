@@ -1,0 +1,446 @@
+{
+  "doctype": {
+    "tag": "!DOCTYPE",
+    "auto_close": true
+  },
+  "a": {
+    "tag": "a",
+    "auto_close": false
+  },
+  "abbr": {
+    "tag": "abbr",
+    "auto_close": false
+  },
+  "address": {
+    "tag": "address",
+    "auto_close": false
+  },
+  "area": {
+    "tag": "area",
+    "auto_close": true
+  },
+  "article": {
+    "tag": "article",
+    "auto_close": false
+  },
+  "aside": {
+    "tag": "aside",
+    "auto_close": false
+  },
+  "audio": {
+    "tag": "audio",
+    "auto_close": false
+  },
+  "b": {
+    "tag": "b",
+    "auto_close": false
+  },
+  "base": {
+    "tag": "base",
+    "auto_close": true
+  },
+  "bdi": {
+    "tag": "bdi",
+    "auto_close": false
+  },
+  "bdo": {
+    "tag": "bdo",
+    "auto_close": false
+  },
+  "blockquote": {
+    "tag": "blockquote",
+    "auto_close": false
+  },
+  "body": {
+    "tag": "body",
+    "auto_close": false
+  },
+  "br": {
+    "tag": "br",
+    "auto_close": true
+  },
+  "button": {
+    "tag": "button",
+    "auto_close": false
+  },
+  "canvas": {
+    "tag": "canvas",
+    "auto_close": false
+  },
+  "caption": {
+    "tag": "caption",
+    "auto_close": false
+  },
+  "cite": {
+    "tag": "cite",
+    "auto_close": false
+  },
+  "code": {
+    "tag": "code",
+    "auto_close": false
+  },
+  "col": {
+    "tag": "col",
+    "auto_close": true
+  },
+  "colgroup": {
+    "tag": "colgroup",
+    "auto_close": false
+  },
+  "data": {
+    "tag": "data",
+    "auto_close": false
+  },
+  "datalist": {
+    "tag": "datalist",
+    "auto_close": false
+  },
+  "dd": {
+    "tag": "dd",
+    "auto_close": false
+  },
+  "del": {
+    "tag": "del",
+    "auto_close": false
+  },
+  "details": {
+    "tag": "details",
+    "auto_close": false
+  },
+  "dfn": {
+    "tag": "dfn",
+    "auto_close": false
+  },
+  "dialog": {
+    "tag": "dialog",
+    "auto_close": false
+  },
+  "div": {
+    "tag": "div",
+    "auto_close": false
+  },
+  "dl": {
+    "tag": "dl",
+    "auto_close": false
+  },
+  "dt": {
+    "tag": "dt",
+    "auto_close": false
+  },
+  "em": {
+    "tag": "em",
+    "auto_close": false
+  },
+  "embed": {
+    "tag": "embed",
+    "auto_close": false
+  },
+  "fieldset": {
+    "tag": "fieldset",
+    "auto_close": false
+  },
+  "figcaption": {
+    "tag": "figcaption",
+    "auto_close": false
+  },
+  "figure": {
+    "tag": "figure",
+    "auto_close": false
+  },
+  "footer": {
+    "tag": "footer",
+    "auto_close": false
+  },
+  "form": {
+    "tag": "form",
+    "auto_close": false
+  },
+  "h1": {
+    "tag": "h1",
+    "auto_close": false
+  },
+  "h2": {
+    "tag": "h2",
+    "auto_close": false
+  },
+  "h3": {
+    "tag": "h3",
+    "auto_close": false
+  },
+  "h4": {
+    "tag": "h4",
+    "auto_close": false
+  },
+  "h5": {
+    "tag": "h5",
+    "auto_close": false
+  },
+  "h6": {
+    "tag": "h6",
+    "auto_close": false
+  },
+  "head": {
+    "tag": "head",
+    "auto_close": false
+  },
+  "header": {
+    "tag": "header",
+    "auto_close": false
+  },
+  "hr": {
+    "tag": "hr",
+    "auto_close": true
+  },
+  "html": {
+    "tag": "html",
+    "auto_close": false
+  },
+  "i": {
+    "tag": "i",
+    "auto_close": false
+  },
+  "iframe": {
+    "tag": "iframe",
+    "auto_close": false
+  },
+  "img": {
+    "tag": "img",
+    "auto_close": true
+  },
+  "input": {
+    "tag": "input",
+    "auto_close": true
+  },
+  "ins": {
+    "tag": "ins",
+    "auto_close": false
+  },
+  "kbd": {
+    "tag": "kbd",
+    "auto_close": false
+  },
+  "label": {
+    "tag": "label",
+    "auto_close": false
+  },
+  "legend": {
+    "tag": "legend",
+    "auto_close": false
+  },
+  "li": {
+    "tag": "li",
+    "auto_close": false
+  },
+  "link": {
+    "tag": "link",
+    "auto_close": true
+  },
+  "main": {
+    "tag": "main",
+    "auto_close": false
+  },
+  "map": {
+    "tag": "map",
+    "auto_close": false
+  },
+  "mark": {
+    "tag": "mark",
+    "auto_close": false
+  },
+  "meta": {
+    "tag": "meta",
+    "auto_close": true
+  },
+  "meter": {
+    "tag": "meter",
+    "auto_close": false
+  },
+  "nav": {
+    "tag": "nav",
+    "auto_close": false
+  },
+  "noscript": {
+    "tag": "noscript",
+    "auto_close": false
+  },
+  "object": {
+    "tag": "object",
+    "auto_close": false
+  },
+  "ol": {
+    "tag": "ol",
+    "auto_close": false
+  },
+  "optgroup": {
+    "tag": "optgroup",
+    "auto_close": false
+  },
+  "option": {
+    "tag": "option",
+    "auto_close": false
+  },
+  "output": {
+    "tag": "output",
+    "auto_close": false
+  },
+  "p": {
+    "tag": "p",
+    "auto_close": false
+  },
+  "param": {
+    "tag": "param",
+    "auto_close": true
+  },
+  "picture": {
+    "tag": "picture",
+    "auto_close": false
+  },
+  "pre": {
+    "tag": "pre",
+    "auto_close": false
+  },
+  "progress": {
+    "tag": "progress",
+    "auto_close": false
+  },
+  "q": {
+    "tag": "q",
+    "auto_close": false
+  },
+  "rp": {
+    "tag": "rp",
+    "auto_close": false
+  },
+  "rt": {
+    "tag": "rt",
+    "auto_close": false
+  },
+  "ruby": {
+    "tag": "ruby",
+    "auto_close": false
+  },
+  "s": {
+    "tag": "s",
+    "auto_close": false
+  },
+  "samp": {
+    "tag": "samp",
+    "auto_close": false
+  },
+  "script": {
+    "tag": "script",
+    "auto_close": false
+  },
+  "section": {
+    "tag": "section",
+    "auto_close": false
+  },
+  "select": {
+    "tag": "select",
+    "auto_close": false
+  },
+  "small": {
+    "tag": "small",
+    "auto_close": false
+  },
+  "source": {
+    "tag": "source",
+    "auto_close": true
+  },
+  "span": {
+    "tag": "span",
+    "auto_close": false
+  },
+  "strong": {
+    "tag": "strong",
+    "auto_close": false
+  },
+  "style": {
+    "tag": "style",
+    "auto_close": false
+  },
+  "sub": {
+    "tag": "sub",
+    "auto_close": false
+  },
+  "summary": {
+    "tag": "summary",
+    "auto_close": false
+  },
+  "sup": {
+    "tag": "sup",
+    "auto_close": false
+  },
+  "svg": {
+    "tag": "svg",
+    "auto_close": false
+  },
+  "table": {
+    "tag": "table",
+    "auto_close": false
+  },
+  "tbody": {
+    "tag": "tbody",
+    "auto_close": false
+  },
+  "td": {
+    "tag": "td",
+    "auto_close": false
+  },
+  "template": {
+    "tag": "template",
+    "auto_close": false
+  },
+  "textarea": {
+    "tag": "textarea",
+    "auto_close": false
+  },
+  "tfoot": {
+    "tag": "tfoot",
+    "auto_close": false
+  },
+  "th": {
+    "tag": "th",
+    "auto_close": false
+  },
+  "thead": {
+    "tag": "thead",
+    "auto_close": false
+  },
+  "time": {
+    "tag": "time",
+    "auto_close": false
+  },
+  "title": {
+    "tag": "title",
+    "auto_close": false
+  },
+  "tr": {
+    "tag": "tr",
+    "auto_close": false
+  },
+  "track": {
+    "tag": "track",
+    "auto_close": true
+  },
+  "u": {
+    "tag": "u",
+    "auto_close": false
+  },
+  "ul": {
+    "tag": "ul",
+    "auto_close": false
+  },
+  "var": {
+    "tag": "var",
+    "auto_close": false
+  },
+  "video": {
+    "tag": "video",
+    "auto_close": false
+  },
+  "wbr": {
+    "tag": "wbr",
+    "auto_close": true
+  }
+}
