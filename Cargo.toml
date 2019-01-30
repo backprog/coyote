@@ -1,9 +1,10 @@
 [package]
-name = "coyote"
+name = "hson_gen"
 version = "0.1.0"
 authors = ["Backprog"]
 edition = "2018"
 
+
 [dependencies]
 serde_json = "1.0.35"
-hson = { git = "https://github.com/backprog/hson" }
+hson = "0.1.3"

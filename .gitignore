@@ -5,3 +5,4 @@
 /cmake-build-debug
 Cargo.lock
 .DS_Store
+src/main.rs
