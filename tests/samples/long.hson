@@ -10,12 +10,14 @@
           "id": "test-1"
         },
         "span": {
-          "text": "Hello",
+          "text": "Hello ",
           "i": {
             "attrs": {
               "class": ["active", "green"]
-            }
-          }
+            },
+            "text": "green"
+          },
+          "text": " World"
         },
         "span": {
           "text": "Hello",

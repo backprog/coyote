@@ -2,6 +2,8 @@
 Generate HTML from hson.
 
 ## Usage
+DOM element attributes can be set using the `attrs` key.  
+InnerText is set using the `text` key.
 ```rust
 let data = r#"
 {
@@ -32,10 +34,10 @@ let data = r#"
             "class": ["active"]
           },
           "p": {
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           },
           "p": {
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           }
         },
         "aside": {
@@ -46,15 +48,19 @@ let data = r#"
             "li": {
               "a": {
                 "attrs": {
-                  "href": "https://google.com"
+                  "href": "https://mozilla.org"
                 },
-                "text": "Follow"
+                "text": "Follow ",
+                "b": {
+                    "text": "the"
+                },
+                "text": " Money"
               }
             },
             "li": {
               "a": {
                 "attrs": {
-                  "href": "https://google.com"
+                  "href": "https://mozilla.org"
                 },
                 "text": "My link"
               }
@@ -67,7 +73,7 @@ let data = r#"
 }
 "#;
   
-let mut generator = HsonGen::new().unwrap();
+let mut generator = HsonGen::new();
 let html = generator.generate(&data).unwrap();
   
 println!("{}", &html);
