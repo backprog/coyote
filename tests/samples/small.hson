@@ -8,7 +8,7 @@
     "head": {
       "link": {
         "attrs": {
-          "href": "https://fonts.googleapis.com/css?family=Roboto",
+          "href": "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",
           "rel": "stylesheet"
         }
       },
@@ -26,16 +26,10 @@
             "class": ["active"]
           },
           "p": {
-            "text": "Lorem ipsum dolor sit amet."
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           },
           "p": {
-            "text": "Lorem ipsum dolor sit amet."
-          },
-          "p": {
-            "text": "Lorem ipsum dolor sit amet."
-          },
-          "p": {
-            "text": "Lorem ipsum dolor sit amet."
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           }
         },
         "aside": {
@@ -46,9 +40,13 @@
             "li": {
               "a": {
                 "attrs": {
-                  "href": "https://mozilla.org"
+                  "href": "https://google.com"
                 },
-                "text": "Follow"
+                "text": "Follow ",
+                "b": {
+                  "text": "the"
+                },
+                "text": " Money"
               }
             },
             "li": {
@@ -56,15 +54,7 @@
                 "attrs": {
                   "href": "https://mozilla.org"
                 },
-                "text": "My link"
-              }
-            },
-            "li": {
-              "a": {
-                "attrs": {
-                  "href": "https://mozilla.org"
-                },
-                "text": "New site"
+                "text": "Learn more"
               }
             }
           }
